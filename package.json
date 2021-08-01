@@ -1,0 +1,32 @@
+{
+  "name": "exam_lab",
+  "version": "1.0.0",
+  "description": "API CRUD para laboratorios e exames",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbressan13/lab_exam.git"
+  },
+  "keywords": [
+    "api",
+    "js",
+    "node",
+    "exam",
+    "lab"
+  ],
+  "author": "Pedro Bressan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pbressan13/lab_exam/issues"
+  },
+  "homepage": "https://github.com/pbressan13/lab_exam#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "save-dev": "0.0.1-security"
+  }
+}
