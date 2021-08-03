@@ -10,6 +10,6 @@ dbConnect.connect(err => {
     console.log('Connected successfully to database')
     tables.init(dbConnect)
     const app = customExpress()
-    app.listen(config.get('api.port'), () => console.log('Server running on port 3000'))
+    app.listen(process.env.PORT || config.get('api.port'), () => console.log('Server running on port 3000'))
   }
 })
