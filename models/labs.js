@@ -6,12 +6,18 @@ class Labs {
   post(lab, res) {
     const nameIsValid = (lab.name.length >= 4 && lab.name.length <= 50)
     const statusIsValid = (lab.status == 'ativo' || lab.status == 'inativo' || lab.status == null)
+    const addressIsValid = (lab.address.length >= 4 && lab.address.length <= 100)
 
     const dataValidation = [
       {
         name: 'name',
         valid: nameIsValid,
         message: 'Lab name must be between 4 to 50 chars'
+      },
+      {
+        name: 'address',
+        valid: addressIsValid,
+        message: 'Address name must be between 4 to 100 chars'
       },
       {
         name: 'status',
@@ -42,7 +48,7 @@ class Labs {
   }
 
   get(res) {
-    const sql = 'SELECT * FROM LABS'
+    const sql = `SELECT * FROM LABS WHERE STATUS = 'ativo'`
 
     dbConnect.query(sql, (err, result) => {
       if (err) {
@@ -78,7 +84,7 @@ class Labs {
   }
 
   delete(id, res) {
-    const sql = 'DELETE FROM LABS WHERE ID=?'
+    const sql = `UPDATE LABS SET STATUS = 'inativo' WHERE ID=?`
     dbConnect.query(sql, id, (err, result) => {
       if(err) {
         res.status(400).json(err)

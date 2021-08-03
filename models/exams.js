@@ -5,6 +5,7 @@ class Exams {
 
   post(exam, res) {
     const nameIsValid = (exam.name.length >= 4 && exam.name.length <= 50)
+    const examTypeIsValid = (exam.exam_type.length >= 4 && exam.exam_type.length <= 50)
     const statusIsValid = (exam.status == 'ativo' || exam.status == 'inativo' || exam.status == null)
 
     const dataValidation = [
@@ -17,6 +18,11 @@ class Exams {
         name: 'status',
         valid: statusIsValid,
         message: 'Status must be ativo or inativo'
+      },
+      {
+        name: 'exam_type',
+        valid: examTypeIsValid,
+        message: 'Exam name must be between 4 to 50 chars'
       }
     ]
 
@@ -42,7 +48,7 @@ class Exams {
   }
 
   get(res) {
-    const sql = 'SELECT * FROM EXAMS'
+    const sql = `SELECT * FROM EXAMS WHERE STATUS = 'ativo'`
 
     dbConnect.query(sql, (err, result) => {
       if (err) {
@@ -78,7 +84,7 @@ class Exams {
   }
 
   delete(id, res) {
-    const sql = 'DELETE FROM EXAMS WHERE ID=?'
+    const sql = `UPDATE EXAMS SET STATUS = 'inativo' WHERE ID=?`
     dbConnect.query(sql, id, (err, result) => {
       if(err) {
         res.status(400).json(err)
