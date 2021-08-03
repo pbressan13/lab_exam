@@ -1,10 +1,10 @@
 {
   "mysql": {
-    "host": "localhost",
+    "host": "us-cdbr-east-04.cleardb.com",
     "port": 3306,
-    "user": "EXAMLABP1",
-    "password": "vqblka81",
-    "database": "EXAMLAB"
+    "user": "be234f1828668b",
+    "password": "e33dd355",
+    "database": "heroku_ca12087d92b0f4c"
   },
   "api": {
     "port": 3000
