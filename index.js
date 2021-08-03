@@ -3,7 +3,8 @@ const dbConnect = require('./infra/connection')
 const tables = require('./infra/tables')
 const config = require('config')
 
-dbConnect.connect(err => {
+
+dbConnect.getConnection(err => {
   if(err) {
     console.log('Unable to connect on database')
   } else {

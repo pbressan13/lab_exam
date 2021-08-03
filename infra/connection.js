@@ -1,8 +1,7 @@
 const mysql = require('mysql')
 const config = require('config')
 
-
-const dbConnect = mysql.createConnection(
+const dbConnect = mysql.createPool(
   {
     host: config.get('mysql.host'),
     port: config.get('mysql.port'),
